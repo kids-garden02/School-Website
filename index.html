@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Garden Sr. Sec. School, Pilani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: #1A1A2E;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1A1A2E;
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FF6F61;
+        }
+
+        nav ul li a.active {
+            color: #FF6F61;
+            border-bottom: 2px solid #FF6F61;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 26, 46, 0.7), rgba(26, 26, 46, 0.7)), url('images/hero-bg.jpg') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background: #FF6F61;
+            color: #FFFFFF;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #E55A50;
+            transform: translateY(-3px);
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 7rem 2rem 5rem;
+            text-align: center;
+            background: #FFFFFF;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #4A4A68;
+        }
+
+        /* Leader Cards */
+        .leader-card {
+            display: flex;
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #F5F5F5;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .leader-card img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .leader-content {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .leader-content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1A1A2E;
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-content h4 {
+            font-size: 1.2rem;
+            color: #FF6F61;
+            margin-bottom: 1rem;
+        }
+
+        .leader-content p {
+            font-size: 1rem;
+            color: #4A4A68;
+            line-height: 1.6;
+        }
+
+        /* Card Grids (Academics, Activity) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1A1A2E;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #4A4A68;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1A1A2E;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #4A4A68;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #FF6F61;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #E55A50;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .contact input, .contact textarea {
+            padding: 0.8rem;
+            border: 1px solid #D3D3D3;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #F5F5F5;
+            color: #1A1A2E;
+        }
+
+        .contact button {
+            background: #FF6F61;
+            color: #FFFFFF;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .contact button:hover {
+            background: #E55A50;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1A1A2E;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 5rem 1rem 3rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            section p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .leader-card {
+                flex-direction: column;
+                margin: 2rem 1rem;
+            }
+
+            .leader-card img {
+                width: 100%;
+                height: 200px;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .academics .card {
+                margin: 1rem;
+            }
+
+            .academics .facilities-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .faculty-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .contact form {
+                padding: 0 1rem;
+            }
+
+            .contact-map iframe {
+                height: 200px;
+            }
+        }
+
+        /* Additional breakpoint for smaller devices */
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .academics .facility-item {
+                padding: 1rem;
+            }
+
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .faculty-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#leaders">Our Leaders</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#faculty">Faculty</a></li>
+            <li><a href="#activity">Activity</a></li>
+            <li><a href="#articles">Articles & Blogs</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="school-logo">
+                <img src="images/kgs-logo.jpg" alt="Kids Garden Sr. Sec. School Logo">
+            </div>
+            <h1>Welcome to Kids Garden Sr. Sec. School, Pilani</h1>
+            <p style="color: #FFFFFF;">Nurturing Young Minds for a Bright Future</p>
+            <p style="color: #FFFFFF; font-style: italic; font-size: 0.9rem; margin-top: 1rem;">Made By Our Students</p>
+            <a href="#contact" class="cta-btn">Make Enquiry</a>
+        </div>
+    </section>
+
+    <style>
+        .hero-content .school-logo {
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .school-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content .school-logo img {
+                width: 100px;
+            }
+        }
+    </style>
+
+    <!-- About Section -->
+    <section id="about" class="container py-5">
+        <h2 class="text-center mb-5">About</h2>
+        
+        <!-- Our Story Subsection -->
+        <div class="about-subsection mb-5">
+            <h3 class="text-center mb-4">Our Story</h3>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p class="lead text-center mb-4">Back in 2005, what began as a humble dream in a single room with just five curious young minds, has now grown into a vibrant institution shaping the future of hundreds.</p>
+                    
+                    <p class="text-center mb-4">Kids Garden Sr. Sec. School, Pilani started as a playgroup school and gradually bloomed—expanding to primary, then middle school, followed by secondary classes. With each passing year, our belief in nurturing children holistically kept growing stronger.</p>
+                    
+                    <p class="text-center mb-4">Today, we proudly stand as a senior secondary school with two dedicated wings:</p>
+                    
+                    <ul class="list-unstyled text-center mb-4">
+                        <li class="mb-2">Junior Wing for the foundational years</li>
+                        <li class="mb-2">Senior Wing for focused academic excellence</li>
+                    </ul>
+                    
+                    <p class="text-center">With every milestone, we've stayed true to our roots: offering a caring atmosphere where fresh minds blossom into confident individuals.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider my-5"></div>
+
+        <!-- Vision and Mission Subsection -->
+        <div class="about-subsection">
+            <h3 class="text-center mb-4">Our Vision and Mission</h3>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p class="text-center mb-4">At Kids Garden Sr. Sec. School, one of the leading Pilani schools, we are committed to creating a nurturing and inclusive learning environment where every child feels seen, valued, and empowered. As a distinguished Pilani school in Rajasthan, we focus on holistic development.</p>
+                    
+                    <p class="text-center mb-4">Our vision, as one of the best schools in Pilani, is to cultivate well-rounded individuals—curious in mind, confident in expression, and compassionate in spirit. Among the top 10 schools in Pilani, we aim to go beyond textbooks, fostering critical thinking, creativity, and resilience in every student.</p>
+                    
+                    <p class="text-center">Our mission, as a premier Pilani school, is to provide quality education from foundational to senior secondary levels, with special focus on academic excellence, personal mentorship, and holistic growth. Standing out among schools in Pilani, we strive to equip students with the knowledge, skills, and values needed to succeed in board examinations and to thrive as responsible global citizens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .about-subsection {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #FF6F61, transparent);
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #about h2 {
+            color: #1A1A2E;
+            position: relative;
+            display: inline-block;
+        }
+
+        #about h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: #FF6F61;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #about h3 {
+            color: #1A1A2E;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        #about .lead {
+            font-size: 1.2rem;
+            color: #4A4A68;
+        }
+
+        #about p {
+            line-height: 1.8;
+            color: #4A4A68;
+        }
+
+        #about ul li {
+            color: #4A4A68;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+        }
+    </style>
+
+    <!-- Leaders Section -->
+    <section id="leaders" class="leaders">
+        <h2>Our Leaders</h2>
+        <p>Meet the visionaries who guide KidsGarden Public School Pilani towards excellence.</p>
+        <div class="leader-card">
+            <img src="images/chairman.jpg" alt="Chairman Phool Singh Saini">
+            <div class="leader-content">
+                <h3>Mr. Phool Singh Saini</h3>
+                <h4>Chairman</h4>
+                <p>The success story of KidsGarden School has been made possible because of its magnanimous management that has given us rock-solid support all through. Our main aim is to impart spiritual richness, transparency in thought and action through value education. The motto of this institution is to inculcate the values and practices of punctuality, regularity, dedication, optimism, devotion, and innovation.</p>
+                <p>We REALIZE our vision as a national competitive school that can give excellent student learning experiences with quality research, serving our country and the world while always yearning for new horizons by following pragmatic approaches. The Chairman Sh. Phool Singh has been a constant source of motivation and encouragement.</p>
+            </div>
+        </div>
+        <div class="leader-card">
+            <img src="images/principal.jpg" alt="Principal Pushplata Saini">
+            <div class="leader-content">
+                <h3>Mrs. Pushplata Saini</h3>
+                <h4>Principal</h4>
+                <p>The School is truly proving to be the architect of possibilities with students proving their mettle in scholastic and non-scholastic achievements. I am indeed privileged to be leading this institution where a wide variety of learning opportunities are offered, exciting the young and making learning joyful, where every personal strength and need of each individual student is recognized. The effort of past years has triumphed and paved the path for enlightenment. The vision has steadily evolved surpassing all the strife of recent years.</p>
+                <p>Build today strong and sure with a firm ample base and ascending, secure shall tomorrow find its place.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="academics">
+        <h2>Academics</h2>
+        <p>At Kids Garden Sr. Sec. School, recognized among the best schools in Pilani, education is not confined to classrooms—it's an evolving journey that nurtures curiosity, builds character, and empowers lifelong learners. As a leading Pilani school in Rajasthan, we follow the Rajasthan Board of Secondary Education (RBSE) curriculum, designed to develop a strong academic foundation.</p>
+        
+        <div class="academic-container">
+            <div class="card">
+                <h3>Grades Offered</h3>
+                <p class="highlight">Playgroup to Grade 12</p>
+                <p>Standing out among Pilani schools, we offer structured, age-appropriate learning programs for each stage of a student's growth—from foundational early years to focused pre-university preparation.</p>
+            </div>
+
+            <div class="card">
+                <h3>Senior Secondary Streams</h3>
+                <p class="highlight">Grades 11 & 12</p>
+                <ul class="stream-list">
+                    <li>Science – PCM (Physics, Chemistry, Mathematics)</li>
+                    <li>Science – PCB (Physics, Chemistry, Biology)</li>
+                    <li>Commerce (Business Studies, Accountancy, Economics)</li>
+                    <li>Commerce with Mathematics</li>
+                </ul>
+                <p>As one of the top 10 schools in Pilani, each stream is supported by experienced faculty, tailored resources, and structured guidance for competitive and board exam readiness.</p>
+            </div>
+
+            <div class="card facilities">
+                <h3>Facilities Supporting Learning</h3>
+                <div class="facilities-grid">
+                    <div class="facility-item">
+                        <h4>Science Labs</h4>
+                        <p>Well-equipped laboratories for Physics, Chemistry, and Biology</p>
+                    </div>
+                    <div class="facility-item">
+                        <h4>Computer Lab</h4>
+                        <p>Updated systems and digital learning tools</p>
+                    </div>
+                    <div class="facility-item">
+                        <h4>Library</h4>
+                        <p>Wide collection of academic and reference books</p>
+                    </div>
+                    <div class="facility-item">
+                        <h4>Smart Classrooms</h4>
+                        <p>Technology integration for visual and immersive learning</p>
+                    </div>
+                    <div class="facility-item">
+                        <h4>Regular Assessments</h4>
+                        <p>Monitor academic progress and learning outcomes</p>
+                    </div>
+                    <div class="facility-item">
+                        <h4>Parent Interaction</h4>
+                        <p>Scheduled days for transparent communication</p>
+                    </div>
+                    <div class="facility-item">
+                        <h4>Remedial Classes</h4>
+                        <p>Personalized academic support and reinforcement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="academic-footer">
+            <p class="highlight-text">Our academic approach is built on consistency, care, and the belief that every child has the potential to succeed—with the right guidance, environment, and encouragement.</p>
+        </div>
+    </section>
+
+    <style>
+        .academics .academic-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .academics .card {
+            margin-bottom: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            padding: 2rem;
+        }
+
+        .academics .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .academics .highlight {
+            color: #FF6F61;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .academics .stream-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .academics .stream-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .academics .stream-list li:last-child {
+            border-bottom: none;
+        }
+
+        .academics .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .academics .facility-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .academics .facility-item:hover {
+            background: #e9ecef;
+        }
+
+        .academics .facility-item h4 {
+            color: #1A1A2E;
+            margin-bottom: 0.8rem;
+        }
+
+        .academics .facility-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .academics .academic-footer {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .academics .highlight-text {
+            font-size: 1.2rem;
+            color: #4A4A68;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            padding: 0 1rem;
+        }
+    </style>
+    <!-- Faculty Section -->
+    <section id="faculty" class="faculty">
+        <h2>Our Faculty</h2>
+        <div class="faculty-hero"> 
+            <img src="images/faculty.jpg" alt="KGS Faculty" class="faculty-image">
+        </div>
+        <p>At Kids Garden Sr. Sec. School, ranked among the best schools in Pilani, our educators are the cornerstone of academic excellence. As a distinguished Pilani school in Rajasthan, we take pride in our team of highly qualified and dedicated teachers who bring extensive experience and passion to the classroom.</p>
+        <p>Our faculty members, contributing to our reputation as one of the top 10 schools in Pilani, are not just teachers but mentors who guide students through their academic journey. Standing out among Pilani schools, our teachers undergo regular professional development to stay updated with the latest educational methodologies and technologies.</p>
+        
+
+        <div class="faculty-content">
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <h3>Experienced Educators</h3>
+                    <p>Our faculty comprises highly qualified teachers with years of experience in their respective subjects. Many hold advanced degrees and regularly participate in professional development programs to stay updated with the latest teaching methodologies.</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3>Subject Expertise</h3>
+                    <p>From sciences to humanities, our teachers bring deep subject knowledge and practical insights to the classroom. They are passionate about their subjects and skilled at making complex concepts accessible to students of all learning levels.</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3>Student-Centric Approach</h3>
+                    <p>Our teachers believe in personalized attention and mentoring. They work closely with students to identify their strengths and areas for improvement, providing guidance that goes beyond academic excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faculty {
+            background: #fff;
+            padding: 5rem 2rem;
+        }
+
+        .faculty-hero {
+            margin: 3rem auto;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .faculty-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculty-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faculty-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .faculty-card h3 {
+            color: #1A1A2E;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .faculty-card p {
+            color: #4A4A68;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faculty-hero {
+                margin: 2rem auto;
+            }
+        }
+    </style>
+
+    <!-- Activity Section -->
+    <section id="activity" class="activity">
+        <h2>Activities</h2>
+        <p>At Kids Garden Sr. Sec. School, we believe in holistic development through diverse activities.</p>
+        
+        <div class="activity-grid">
+            <div class="activity-card">
+                <img src="images/cultural.jpg" alt="Cultural Events at KGS" class="activity-image">
+                <h3>Cultural Events</h3>
+                <p>Our vibrant cultural events showcase traditional dance performances, music, and artistic expressions, celebrating India's rich cultural heritage while nurturing students' creative talents.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/festival.jpg" alt="Festival Celebration" class="activity-image">
+                <h3>Festival Celebration</h3>
+                <p>Every festival is celebrated with enthusiasm, helping students learn about diverse traditions while building cultural values and community spirit.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/housewise.jpg" alt="House Wise Competitions" class="activity-image">
+                <h3>House Wise Competitions</h3>
+                <p>Students from Gandhi, Tagore, Raman, and Dhyanchand houses compete in debates, quizzes, and more, fostering teamwork and healthy rivalry.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/sports.jpg" alt="Sports" class="activity-image">
+                <h3>Sports</h3>
+                <p>Regular sports activities, including an annual Sports Day, promote physical fitness, discipline, and team spirit among students.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/Art.jpg" alt="Art and Craft" class="activity-image">
+                <h3>Art and Craft</h3>
+                <p>Creative workshops encourage students to explore their artistic talents, developing imagination and fine motor skills through hands-on projects.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/publicSpeaking.jpg" alt="Public Speaking" class="activity-image">
+                <h3>Public Speaking</h3>
+                <p>Debates, elocution, and storytelling sessions help students build confidence, communication skills, and the ability to express ideas clearly.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/schooltrip.jpg" alt="School Trip" class="activity-image">
+                <h3>School Trip</h3>
+                <p>Educational trips to historical sites, museums, and nature reserves provide hands-on learning and memorable experiences.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/science.jpg" alt="Science and Technology at KGS" class="activity-image">
+                <h3>Science and Technology</h3>
+                <p>Our science and technology programs foster innovation and critical thinking through hands-on experiments, robotics workshops, and STEM projects. Students engage in practical learning experiences that prepare them for the digital age.</p>
+            </div>
+            <div class="activity-card">
+                <img src="images/annual.JPG" alt="Annual Day" class="activity-image">
+                <h3>Annual Day</h3>
+                <p>Our Annual Day features performances, awards, and celebrations, highlighting student achievements and school spirit.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <style>
+        .activity {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .activity-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .activity-card h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            color: #1A1A2E;
+            font-size: 1.4rem;
+        }
+
+        .activity-card p {
+            padding: 0 1.5rem 1.5rem;
+            color: #4A4A68;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Articles & Blogs Section -->
+    <section id="articles" class="articles">
+        <h2>Articles & Blogs</h2>
+        <p>Stay updated with our latest news, achievements, and insights from KGS Pilani.</p>
+        
+        <div class="articles-container">
+            <article class="article-card featured">
+                <div class="article-image">
+                    <img src="images/hero-bg.jpg" alt="Legacy of Learning">
+                </div>
+                <div class="article-content">
+                    <div class="article-tag">Featured</div>
+                    <h3>📘 The Legacy of Learning — Kids Garden Sr. Sec. School, Pilani</h3>
+                    <p>Located in the educational hub of Rajasthan, Kids Garden Sr. Sec. School stands as a beacon of learning among Pilani schools. Founded in 2005...</p>
+                    <a href="a1.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="images/sportsday.jpg" alt="Sports Day">
+                </div>
+                <div class="article-content">
+                    <div class="article-tag">Events</div>
+                    <h3>🏆 Sports Day 2025 — Celebrating Team Spirit and Vitality</h3>
+                    <p>Kids Garden Sr. Sec. School, Pilani recently hosted its grand Sports Day, an annual highlight that brings our entire school community together. This year’s...</p>
+                    <a href="a2.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="images/pratapgarh.jpg" alt="Experiential Learning">
+                </div>
+                <div class="article-content">
+                    <div class="article-tag">Field Trip</div>
+                    <h3>🌾 Fun Learning at Pratapgarh Farm & Resort</h3>
+                    <p>Fun learning is at the heart of education at Kids Garden Sr. Sec. School, Pilani. As part of this commitment, our students enjoyed an enriching trip to...</p>
+                    <a href="a3.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="images/republicDay.jpg" alt="Republic Day">
+                </div>
+                <div class="article-content">
+                    <div class="article-tag">Celebration</div>
+                    <h3>🇮🇳 Republic Day Commemoration — Honoring Our Nation</h3>
+                    <p>With great pride and patriotic spirit, Kids Garden Sr. Sec. School, Pilani marked the 76th Republic Day through a series of meaningful activities and...</p>
+                    <a href="a4.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="images/personality.jpg" alt="Personality Grooming">
+                </div>
+                <div class="article-content">
+                    <div class="article-tag">Development</div>
+                    <h3>💼 Personality Grooming Week — Empowering Leaders</h3>
+                    <p>Kids Garden Sr. Sec. School, Pilani continues to set itself apart through transformative programs like Personality Grooming Week. Held annually, this...</p>
+                    <a href="a5.html" class="read-more">Read More</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <p>Take a visual journey through our vibrant school life and memorable moments.</p>
+        
+        <div class="gallery-grid">
+            <img src="images/g1.jpg" alt="School Gallery Image 1" loading="lazy">
+            <img src="images/g2.jpg" alt="School Gallery Image 2" loading="lazy">
+            <img src="images/g3.jpg" alt="School Gallery Image 3" loading="lazy">
+            <img src="images/g4.jpg" alt="School Gallery Image 4" loading="lazy">
+            <img src="images/g5.jpg" alt="School Gallery Image 5" loading="lazy">
+            <img src="images/g6.jpg" alt="School Gallery Image 6" loading="lazy">
+            <img src="images/g7.jpg" alt="School Gallery Image 7" loading="lazy">
+            <img src="images/g8.jpg" alt="School Gallery Image 8" loading="lazy">
+            <img src="images/g9.jpg" alt="School Gallery Image 9" loading="lazy">
+            <img src="images/g10.jpg" alt="School Gallery Image 10" loading="lazy">
+            <img src="images/g11.jpg" alt="School Gallery Image 11" loading="lazy">
+            <img src="images/g12.jpg" alt="School Gallery Image 12" loading="lazy">
+            <img src="images/g13.jpg" alt="School Gallery Image 13" loading="lazy">
+            <img src="images/g14.jpg" alt="School Gallery Image 14" loading="lazy">
+            <img src="images/g15.jpg" alt="School Gallery Image 15" loading="lazy">
+            <img src="images/g16.jpg" alt="School Gallery Image 16" loading="lazy">
+            <img src="images/g17.jpg" alt="School Gallery Image 17" loading="lazy">
+            <img src="images/g18.jpg" alt="School Gallery Image 18" loading="lazy">
+            <img src="images/g19.jpg" alt="School Gallery Image 19" loading="lazy">
+            <img src="images/g20.jpg" alt="School Gallery Image 20" loading="lazy">
+            <img src="images/g21.jpg" alt="School Gallery Image 21" loading="lazy">
+            <img src="images/g22.jpg" alt="School Gallery Image 22" loading="lazy">
+            <img src="images/g23.jpg" alt="School Gallery Image 23" loading="lazy">
+            <img src="images/g24.jpg" alt="School Gallery Image 24" loading="lazy">
+            <img src="images/g25.jpg" alt="School Gallery Image 25" loading="lazy">
+            <img src="images/g26.jpg" alt="School Gallery Image 26" loading="lazy">
+            <img src="images/g27.jpg" alt="School Gallery Image 27" loading="lazy">
+            <img src="images/g28.jpg" alt="School Gallery Image 28" loading="lazy">
+            <img src="images/g29.jpg" alt="School Gallery Image 29" loading="lazy">
+            <img src="images/g30.jpg" alt="School Gallery Image 30" loading="lazy">
+            <img src="images/g31.jpg" alt="School Gallery Image 31" loading="lazy">
+            <img src="images/g32.jpg" alt="School Gallery Image 32" loading="lazy">
+            <img src="images/g33.jpg" alt="School Gallery Image 33" loading="lazy">
+            <img src="images/g34.jpg" alt="School Gallery Image 34" loading="lazy">
+            <img src="images/g35.jpg" alt="School Gallery Image 35" loading="lazy">
+            <img src="images/g36.jpg" alt="School Gallery Image 36" loading="lazy">
+            <img src="images/g37.jpg" alt="School Gallery Image 37" loading="lazy">
+            <img src="images/g38.jpg" alt="School Gallery Image 38" loading="lazy">
+            <img src="images/g39.jpg" alt="School Gallery Image 39" loading="lazy">
+            <img src="images/g40.jpg" alt="School Gallery Image 40" loading="lazy">
+        </div>
+    </section>
+
+    <style>
+        /* Gallery Section Styling */
+        .gallery {
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                padding: 1rem;
+            }
+
+            .gallery-grid img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for inquiries or to schedule a visit.</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><strong>Address:</strong> Near Police Station, Loharu Road, Pilani (RAJ.) - 333031</p>
+                <p><strong>Phone:</strong> <a href="tel:9252057122">9252057122</a>, <a href="tel:7976439563">7976439563</a></p>
+                <p><strong>Email:</strong> <a href="mailto:kidsgarden02@gmail.com">kidsgarden02@gmail.com</a></p>
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.160738354806!2d75.60505831507794!3d28.365048982524093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3913335d7f6c8c7f%3A0x6f8c6b3b7b8f8f8f!2sPolice%20Station%2C%20Pilani!5e0!3m2!1sen!2sin!4v1698765432109!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <style>
+       /* Contact Section */
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-info {
+            text-align: center;  /* Changed from left to center */
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1A1A2E;
+            margin-bottom: 1rem;
+            text-align: center;  /* Added to ensure heading is centered */
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #4A4A68;
+            margin-bottom: 0.5rem;
+            text-align: center;  /* Changed from left to center */
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;  /* Changed from left to center */
+            max-width: 400px;    /* Added to prevent form from stretching too wide */
+            margin: 0 auto;      /* Added to center the form */
+        }
+
+        .contact input, .contact textarea {
+            padding: 0.8rem;
+            border: 1px solid #D3D3D3;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #F5F5F5;
+            color: #1A1A2E;
+            width: 100%;         /* Added to ensure full width */
+        }
+
+        .contact button {
+            margin: 0 auto;      /* Added to center the button */
+            width: fit-content;  /* Added to prevent full-width button */
+        }
+
+        /* Articles Section Styling */
+        .articles {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .articles-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .article-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            grid-column: span 6;
+        }
+
+        .article-card.featured {
+            grid-column: span 12;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .article-card.featured .article-image {
+            height: 100%;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF6F61;
+            color: #fff;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: #1A1A2E;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-content p {
+            color: #4A4A68;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #FF6F61;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #E55A50;
+        }
+
+        .read-more:after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover:after {
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design for Articles */
+        @media (max-width: 992px) {
+            .article-card {
+                grid-column: span 12;
+            }
+
+            .article-card.featured {
+                grid-template-columns: 1fr;
+            }
+
+            .article-card.featured .article-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .articles {
+                padding: 3rem 1rem;
+            }
+
+            .article-content {
+                padding: 1.5rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+
+    <style>
+        /* Articles Section Styling */
+        .articles {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .articles-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .article-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            grid-column: span 6;
+        }
+
+        .article-card.featured {
+            grid-column: span 12;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .article-card.featured .article-image {
+            height: 100%;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FF6F61;
+            color: #fff;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: #1A1A2E;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-content p {
+            color: #4A4A68;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #FF6F61;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #E55A50;
+        }
+
+        .read-more:after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover:after {
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design for Articles */
+        @media (max-width: 992px) {
+            .article-card {
+                grid-column: span 12;
+            }
+
+            .article-card.featured {
+                grid-template-columns: 1fr;
+            }
+
+            .article-card.featured .article-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .articles {
+                padding: 3rem 1rem;
+            }
+
+            .article-content {
+                padding: 1.5rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kids Garden Sr. Sec. School, Pilani. All rights reserved.</p>
+    </footer>
+        
+    
+</body>
+</html>
