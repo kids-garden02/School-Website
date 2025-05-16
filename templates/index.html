@@ -26,15 +26,10 @@
         /* Navigation */
         nav {
             background: #1A1A2E;
-            padding: 1rem;
+            padding: 1.5rem 2rem;
             position: fixed;
             width: 100%;
             z-index: 1000;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         nav ul {
@@ -42,9 +37,6 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            flex-wrap: wrap;
-            margin: 0;
-            padding: 0;
         }
 
         nav ul li a {
@@ -62,60 +54,6 @@
         nav ul li a.active {
             color: #FF6F61;
             border-bottom: 2px solid #FF6F61;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #FFFFFF;
-            font-size: 1.5rem;
-            cursor: pointer;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 0.5rem;
-            z-index: 1001;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-                justify-content: flex-start;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                background: #1A1A2E;
-                padding: 1rem 0;
-                gap: 1rem;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul li a {
-                display: block;
-                padding: 0.5rem 0;
-            }
         }
 
         /* Hero Section */
@@ -191,7 +129,6 @@
             width: 250px;
             height: 250px;
             object-fit: cover;
-            object-position: top;
             border-radius: 10px 0 0 10px;
         }
 
@@ -409,7 +346,6 @@
             .leader-card img {
                 width: 100%;
                 height: 200px;
-                object-position: top;
                 border-radius: 10px 10px 0 0;
             }
 
@@ -478,7 +414,6 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <button class="nav-toggle">☰</button>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -500,7 +435,7 @@
             </div>
             <h1>Welcome to Kids Garden Sr. Sec. School, Pilani</h1>
             <p style="color: #FFFFFF;">Nurturing Young Minds for a Bright Future</p>
-            <p style="color: #FFFFFF; font-style: italic; font-size: 0.9rem; margin-top: 1rem;">Made with ❤️ By Our Students</p>
+            <p style="color: #FFFFFF; font-style: italic; font-size: 0.9rem; margin-top: 1rem;">Made By Our Students</p>
             <a href="#contact" class="cta-btn">Make Enquiry</a>
         </div>
     </section>
@@ -1512,24 +1447,5 @@
     </footer>
         
     
-    <script>
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('nav')) {
-                document.querySelector('nav ul').classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav ul').classList.remove('active');
-            });
-        });
-    </script>
 </body>
-</html> 
+</html>
