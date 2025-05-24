@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kids Garden Sr. Sec. School, Pilani</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
         * {
@@ -26,15 +27,10 @@
         /* Navigation */
         nav {
             background: #1A1A2E;
-            padding: 1rem;
+            padding: 1.5rem 2rem;
             position: fixed;
             width: 100%;
             z-index: 1000;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         nav ul {
@@ -42,9 +38,6 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            flex-wrap: wrap;
-            margin: 0;
-            padding: 0;
         }
 
         nav ul li a {
@@ -62,60 +55,6 @@
         nav ul li a.active {
             color: #FF6F61;
             border-bottom: 2px solid #FF6F61;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #FFFFFF;
-            font-size: 1.5rem;
-            cursor: pointer;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 0.5rem;
-            z-index: 1001;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-                justify-content: flex-start;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                background: #1A1A2E;
-                padding: 1rem 0;
-                gap: 1rem;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul li a {
-                display: block;
-                padding: 0.5rem 0;
-            }
         }
 
         /* Hero Section */
@@ -138,6 +77,44 @@
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
+        }
+
+        .hero-content .highlight {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #FF6F61, #FFC371);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 111, 97, 0.8);
+            }
+        }
+
+        .hero-content .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF6F61, transparent);
         }
 
         .cta-btn {
@@ -191,7 +168,6 @@
             width: 250px;
             height: 250px;
             object-fit: cover;
-            object-position: top;
             border-radius: 10px 0 0 10px;
         }
 
@@ -285,77 +261,77 @@
 
         /* Contact Section */
         .contact-container {
-            max-width: 1000px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .contact-info {
-            text-align: left;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1A1A2E;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info p {
-            font-size: 1rem;
-            color: #4A4A68;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info a {
-            color: #FF6F61;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-info a:hover {
-            color: #E55A50;
-        }
-
-        .contact-map iframe {
-            width: 100%;
-            height: 250px;
-            border-radius: 10px;
+        .registration-form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: left;
-        }
-
-        .contact input, .contact textarea {
-            padding: 0.8rem;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            font-size: 1rem;
-            background: #F5F5F5;
+        .registration-form h3 {
             color: #1A1A2E;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
         }
 
-        .contact button {
-            background: #FF6F61;
-            color: #FFFFFF;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 25px;
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
         }
 
-        .contact button:hover {
-            background: #E55A50;
-            transform: translateY(-3px);
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #FF6F61;
+            box-shadow: 0 0 0 2px rgba(255, 111, 97, 0.2);
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #FF6F61, #FFC371);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .registration-form {
+                padding: 1.5rem;
+            }
         }
 
         /* Footer */
@@ -409,7 +385,6 @@
             .leader-card img {
                 width: 100%;
                 height: 200px;
-                object-position: top;
                 border-radius: 10px 10px 0 0;
             }
 
@@ -476,14 +451,79 @@
     </style>
 </head>
 <body>
+    <!-- News Ticker -->
+    <div class="news-ticker">
+        <div class="ticker-wrapper">
+            <div class="ticker-content">
+                <span>🌟 Pilani's First AI School</span>
+                <span>📊 Consistently Achieving Outstanding Academic Excellence</span>
+                <span>🏫 Dedicated Junior and Senior Wings for Focused Learning</span>
+                <span>🗣️ Excellence in English Communication Skills Development</span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .news-ticker {
+            background: linear-gradient(135deg, #1A1A2E, #4A4A68);
+            color: #FFFFFF;
+            padding: 8px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            overflow: hidden;
+        }
+
+        .ticker-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker-content span {
+            padding: 0 40px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Adjust nav position to accommodate ticker */
+        nav {
+            top: 36px;
+        }
+
+        /* Adjust hero section to accommodate ticker and nav */
+        .hero {
+            margin-top: 84px;
+        }
+
+        @media (max-width: 768px) {
+            .ticker-content span {
+                padding: 0 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
     <!-- Navigation -->
     <nav>
-        <button class="nav-toggle">☰</button>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#leaders">Our Leaders</a></li>
             <li><a href="#academics">Academics</a></li>
+            <li><a href="#ai-education">AI Education</a></li>
             <li><a href="#faculty">Faculty</a></li>
             <li><a href="#activity">Activity</a></li>
             <li><a href="#articles">Articles & Blogs</a></li>
@@ -498,9 +538,10 @@
             <div class="school-logo">
                 <img src="images/kgs-logo.jpg" alt="Kids Garden Sr. Sec. School Logo">
             </div>
+            <span class="highlight">Pilani's First AI School</span>
             <h1>Welcome to Kids Garden Sr. Sec. School, Pilani</h1>
             <p style="color: #FFFFFF;">Nurturing Young Minds for a Bright Future</p>
-            <p style="color: #FFFFFF; font-style: italic; font-size: 0.9rem; margin-top: 1rem;">Made with ❤️ By Our Students</p>
+            <p style="color: #FFFFFF; font-style: italic; font-size: 0.9rem; margin-top: 1rem;">Made By Our Students</p>
             <a href="#contact" class="cta-btn">Make Enquiry</a>
         </div>
     </section>
@@ -793,6 +834,7 @@
             padding: 0 1rem;
         }
     </style>
+
     <!-- Faculty Section -->
     <section id="faculty" class="faculty">
         <h2>Our Faculty</h2>
@@ -802,19 +844,16 @@
         <p>At Kids Garden Sr. Sec. School, ranked among the best schools in Pilani, our educators are the cornerstone of academic excellence. As a distinguished Pilani school in Rajasthan, we take pride in our team of highly qualified and dedicated teachers who bring extensive experience and passion to the classroom.</p>
         <p>Our faculty members, contributing to our reputation as one of the top 10 schools in Pilani, are not just teachers but mentors who guide students through their academic journey. Standing out among Pilani schools, our teachers undergo regular professional development to stay updated with the latest educational methodologies and technologies.</p>
         
-
         <div class="faculty-content">
             <div class="faculty-grid">
                 <div class="faculty-card">
                     <h3>Experienced Educators</h3>
                     <p>Our faculty comprises highly qualified teachers with years of experience in their respective subjects. Many hold advanced degrees and regularly participate in professional development programs to stay updated with the latest teaching methodologies.</p>
                 </div>
-
                 <div class="faculty-card">
                     <h3>Subject Expertise</h3>
                     <p>From sciences to humanities, our teachers bring deep subject knowledge and practical insights to the classroom. They are passionate about their subjects and skilled at making complex concepts accessible to students of all learning levels.</p>
                 </div>
-
                 <div class="faculty-card">
                     <h3>Student-Centric Approach</h3>
                     <p>Our teachers believe in personalized attention and mentoring. They work closely with students to identify their strengths and areas for improvement, providing guidance that goes beyond academic excellence.</p>
@@ -941,7 +980,6 @@
                 <h3>Annual Day</h3>
                 <p>Our Annual Day features performances, awards, and celebrations, highlighting student achievements and school spirit.</p>
             </div>
-            
         </div>
     </section>
 
@@ -1067,7 +1105,6 @@
     </section>
 
     <!-- Gallery Section -->
-    <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <h2>Gallery</h2>
         <p>Take a visual journey through our vibrant school life and memorable moments.</p>
@@ -1163,6 +1200,38 @@
         }
     </style>
 
+    <!-- AI Education Section -->
+    <section id="ai-education" class="ai-education">
+        <h2>AI Education</h2>
+        <div class="ai-education-content">
+            <div class="ai-image">
+                <img src="images/ai.jpeg" alt="AI Education at KGS">
+            </div>
+            <p class="intro-text">Our school has established a strategic partnership with DVM, becoming Pilani's first AI school, empowering our students with cutting-edge skills that are essential in today's digital age. Through this collaboration, we provide our students with hands-on experience in:</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <p>Students learn to build websites through real-life projects, gaining practical experience in modern web technologies.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>AI & Technology</h3>
+                    <p>Learn to harness the power of artificial intelligence to enhance efficiency and productivity in various domains.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Future Skills</h3>
+                    <p>Comprehensive training in finance, entrepreneurship, communication, aptitude, machine learning, blockchain, cryptography, and digital marketing.</p>
+                </div>
+            </div>
+            <div class="dvm-section">
+                <a href="dvm.html" class="dvm-link">
+                    <img src="images/dvm.jpg" alt="DVM Logo" class="dvm-logo">
+                    Know More About DVM
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
@@ -1177,201 +1246,266 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.160738354806!2d75.60505831507794!3d28.365048982524093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3913335d7f6c8c7f%3A0x6f8c6b3b7b8f8f8f!2sPolice%20Station%2C%20Pilani!5e0!3m2!1sen!2sin!4v1698765432109!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
+            <div class="registration-form">
+                <h3>Make Enquiry</h3>
+                <form id="enquiry-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone_no" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Enquiry</button>
+                    <p id="form-message" style="margin-top: 1rem; color: #FF6F61; text-align: center;"></p>
+                </form>
+            </div>
         </div>
     </section>
 
-    
     <style>
-       /* Contact Section */
-        .contact-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        .contact-info {
-            text-align: center;  /* Changed from left to center */
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1A1A2E;
-            margin-bottom: 1rem;
-            text-align: center;  /* Added to ensure heading is centered */
-        }
-
-        .contact-info p {
-            font-size: 1rem;
-            color: #4A4A68;
-            margin-bottom: 0.5rem;
-            text-align: center;  /* Changed from left to center */
-        }
-
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;  /* Changed from left to center */
-            max-width: 400px;    /* Added to prevent form from stretching too wide */
-            margin: 0 auto;      /* Added to center the form */
-        }
-
-        .contact input, .contact textarea {
-            padding: 0.8rem;
-            border: 1px solid #D3D3D3;
-            border-radius: 5px;
-            font-size: 1rem;
+        .ai-education {
             background: #F5F5F5;
-            color: #1A1A2E;
-            width: 100%;         /* Added to ensure full width */
-        }
-
-        .contact button {
-            margin: 0 auto;      /* Added to center the button */
-            width: fit-content;  /* Added to prevent full-width button */
-        }
-
-        /* Articles Section Styling */
-        .articles {
-            background: #f8f9fa;
             padding: 5rem 2rem;
         }
 
-        .articles-container {
+        .dvm-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 111, 97, 0.2);
+            text-align: center;
+        }
+
+        .dvm-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(45deg, #FF6F61, #FFC371, #FF6F61);
+            background-size: 200% 200%;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3);
+            animation: gradientMove 3s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dvm-link::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 32px;
+            background: linear-gradient(45deg, #FF6F61, #FFC371, #FF6F61);
+            z-index: -1;
+            animation: borderGlow 2s ease-in-out infinite;
+        }
+
+        .dvm-link:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 111, 97, 0.4);
+            letter-spacing: 2px;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .dvm-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .ai-education-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
-            padding: 2rem 0;
         }
 
-        .article-card {
-            background: #fff;
+        .ai-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            grid-column: span 6;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: #fff;
+            padding: 1rem;
         }
 
-        .article-card.featured {
-            grid-column: span 12;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .article-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .article-card.featured .article-image {
-            height: 100%;
-        }
-
-        .article-image img {
+        .ai-image img {
             width: 100%;
-            height: 100%;
+            height: 400px;
             object-fit: cover;
+            border-radius: 10px;
             transition: transform 0.3s ease;
         }
 
-        .article-card:hover .article-image img {
+        .ai-image:hover img {
             transform: scale(1.05);
         }
 
-        .article-content {
-            padding: 2rem;
-        }
-
-        .article-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #FF6F61;
-            color: #fff;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .article-content h3 {
-            font-size: 1.4rem;
-            color: #1A1A2E;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .article-content p {
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
             color: #4A4A68;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            margin: 2rem auto;
+            max-width: 900px;
+            text-align: center;
         }
 
-        .read-more {
-            color: #FF6F61;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            transition: color 0.3s;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .read-more:hover {
-            color: #E55A50;
-        }
-
-        .read-more:after {
-            content: '→';
-            margin-left: 0.5rem;
+        .skill-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
-        .read-more:hover:after {
-            transform: translateX(5px);
+        .skill-card:hover {
+            transform: translateY(-5px);
         }
 
-        /* Responsive Design for Articles */
-        @media (max-width: 992px) {
-            .article-card {
-                grid-column: span 12;
-            }
+        .skill-card h3 {
+            color: #1A1A2E;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
 
-            .article-card.featured {
-                grid-template-columns: 1fr;
-            }
-
-            .article-card.featured .article-image {
-                height: 250px;
-            }
+        .skill-card p {
+            color: #4A4A68;
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
-            .articles {
-                padding: 3rem 1rem;
+            .skills-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
             }
 
-            .article-content {
-                padding: 1.5rem;
+            .ai-image {
+                margin: 1rem auto;
             }
 
-            .article-content h3 {
-                font-size: 1.2rem;
+            .ai-image img {
+                height: 300px;
+            }
+
+            .intro-text {
+                font-size: 1.1rem;
+                padding: 0 1rem;
             }
         }
-    </style>
 
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
-    <style>
+        .registration-form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-form h3 {
+            color: #1A1A2E;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #FF6F61;
+            box-shadow: 0 0 0 2px rgba(255, 111, 97, 0.2);
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #FF6F61, #FFC371);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .registration-form {
+                padding: 1.5rem;
+            }
+        }
+
         /* Articles Section Styling */
         .articles {
             background: #f8f9fa;
@@ -1508,28 +1642,80 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Kids Garden Sr. Sec. School, Pilani. All rights reserved.</p>
+        <p>© 2024 Kids Garden Sr. Sec. School, Pilani. All rights reserved.</p>
     </footer>
-        
     
     <script>
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
+        document.getElementById('enquiry-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+            console.log('Form submission initiated');
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('nav')) {
-                document.querySelector('nav ul').classList.remove('active');
+            const form = event.target;
+            const formData = new FormData(form);
+            const messageElement = document.getElementById('form-message');
+
+            // Log form data for debugging
+            const formDataObj = {};
+            formData.forEach((value, key) => { formDataObj[key] = value; });
+            console.log('Form data:', formDataObj);
+
+            try {
+                const response = await fetch('http://localhost:5000/submit-enquiry', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                console.log('Response status:', response.status);
+                const result = await response.json();
+                console.log('Response data:', result);
+
+                if (response.ok) {
+                    messageElement.textContent = result.message;
+                    messageElement.style.color = '#28a745'; // Green for success
+                    form.reset(); // Clear the form
+                    console.log('Form submitted successfully');
+                } else {
+                    messageElement.textContent = result.error;
+                    messageElement.style.color = '#FF6F61'; // Red for error
+                    console.error('Submission error:', result.error);
+                }
+            } catch (error) {
+                messageElement.textContent = 'An error occurred. Please try again.';
+                messageElement.style.color = '#FF6F61';
+                console.error('Fetch error:', error);
             }
+
+            // Clear the message after 5 seconds
+            setTimeout(() => {
+                messageElement.textContent = '';
+            }, 5000);
         });
 
-        // Close menu when clicking a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav ul').classList.remove('active');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+
+                // Update active class
+                document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
             });
+        });
+
+        // GSAP Animation for Hero Section
+        gsap.from(".hero-content", {
+            duration: 1.5,
+            opacity: 0,
+            y: 50,
+            ease: "power2.out",
+            delay: 0.5
         });
     </script>
 </body>
-</html> 
+</html>
